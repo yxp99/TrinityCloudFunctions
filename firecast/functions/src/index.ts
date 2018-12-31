@@ -115,12 +115,12 @@ exports.myCloudTimer = functions.database.ref('/DB1_0/Game/game(idFDFDS)/Current
                   });
                  // [Remove ends]
 
-                const questionListRef = db.ref('/DB1_0/Game/game(idFDFDS)');
+                const questionListRef = db.ref('/DB1_0/Game/game(idFDFDS)/Question');
                 const newQuestionRef = questionListRef.push();
                 //newQuestionRef.child('content').set (snap.val());
                 newQuestionRef.set({
-                  'content': snap.val(),
-                  'answer': 'notSet'
+                  'Content': snap.val(),
+                  'Answer': 'notSet'
                 });
 
             })
