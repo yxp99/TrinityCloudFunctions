@@ -150,32 +150,31 @@ const db = admin.database();
 //           quid = snap.val();
 //           console.log(quid);
           
-//         }, function (errorObject) {
-//           console.log("The read failed: " + errorObject.code);
-//         });
+        }, function (errorObject) {
+         });
 
-//         const gameRef = db.ref('/DB1_0/Game/game(idFDFDS)');
-//         const questionRef = gameRef.child("Question").child(quid);
-//         return questionRef.child("Answer").set(snapshot.val());
-//         // currentAnswerRef.set({
-//         //     'QUID': postId
-//         // });
+        const gameRef = db.ref('/DB1_0/Game/game(idFDFDS)');
+         const questionRef = gameRef.child("Question").child(quid);
+        return questionRef.child("Answer").set(snapshot.val());
+ currentAnswerRef.set({
+    'QUID': postId
+});
 
-//         // db.ref('/DB1_0/Game/game(idFDFDS)/Question').orderByChild("Uid").equalTo(quid).on('value', function(snapshot) {
-//         //     //snapshot would have list of NODES that satisfies the condition
-//         //     console.log(snapshot.val())
-//         //     console.log('-----------');
+ db.ref('/DB1_0/Game/game(idFDFDS)/Question').orderByChild("Uid").equalTo(quid).on('value', function(snapshot) {
+   //snapshot would have list of NODES that satisfies the condition
+   console.log(snapshot.val())
+    console.log('-----------');
 
 
-//         //     //go through each item found and print out the emails
-//         //     snapshot.forEach(function(childSnapshot) {
+   //go through each item found and print out the emails
+   snapshot.forEach(function(childSnapshot) {
 
-//         //         var key = childSnapshot.key;
-//         //         var childData = childSnapshot.val();
+       var key = childSnapshot.key;
+       var childData = childSnapshot.val();
 
-//         //         //this will be the actual email value found
-//         //         console.log(childData.Answer);
-//         //     });
+        //this will be the actual email value found
+        console.log(childData.Answer);
+    });
 
 //         // });
 
