@@ -234,9 +234,6 @@ exports.createNewQuestion = functions.database.ref('/DB1_0/Game/game(idFDFDS)/Cu
             return Promise.reject('content is not defined in the database.');
         }
 
-        //[START File the current question content into question DB]
-        const questionListRef = db.ref('/DB1_0/Game/game(idFDFDS)/Question');
-        const newQuestionRef = questionListRef.push();
         const postId = newQuestionRef.getKey();
         //newQuestionRef.child('content').set (snap.val());
         newQuestionRef.set({
